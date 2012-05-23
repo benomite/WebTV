@@ -1,4 +1,4 @@
-INSERT INTO tbl_user (username, password, email) VALUES ('admin', 'admin', 'admin@example.com');
+INSERT INTO User (username, password, email) VALUES ('admin', 'admin', 'admin@example.com');
 
 INSERT INTO Artist( name, description, creationDate, lastUpdate ) 
 VALUES ('KarlCox', 'J\'ai toujours dominé la scène électro internationale', NULL , NULL
