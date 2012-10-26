@@ -1,0 +1,29 @@
+Copyright © 2012 Webapplicationthemes.com
+
+You may use this theme for both commercial and personal use, and customize it any way you like.
+
+We would love to see how you'll be using our theme in your application. Please feel free to send us a link to your application or a screenshot on simpsonmoyo(at)gmail.com
+
+Enjoy!
+
+You can get the User guide here:
+http://webapplicationthemes.com/index.php/site/user_guide
+
+or view the Yii Admin Theme demo here:
+http://webapplicationthemes.com/themes/
+
+Notice: yiithemes.mehesz.net limits theme uploads to 1Mb and the full theme is 1.5MB so i had to remove the small icons in the images folder. feel free to get the full theme at:
+
+http://webapplicationthemes.com
+
+or just download the icons from http://www.famfamfam.com/lab/icons/
+
+Theme Credits
+
+-Iconsweets2
+-Famfamfam Silk Icons
+-MbMenu
+-fullCalendar
+-Google chart tools
+-gvChart - jQuery plugin
+

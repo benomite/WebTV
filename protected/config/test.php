@@ -7,17 +7,9 @@ return CMap::mergeArray(
 			'fixture'=>array(
 				'class'=>'system.test.CDbFixtureManager',
 			),
+			/* uncomment the following to provide test database connection
 			'db'=>array(
-				'connectionString'=>'sqlite:'.dirname(__FILE__).'/../data/blog-test.db',
-			),
-			// uncomment the following to use a MySQL database
-			/*
-			'db'=>array(
-				'connectionString' => 'mysql:host=localhost;dbname=blog-test',
-				'emulatePrepare' => true,
-				'username' => 'root',
-				'password' => '',
-				'charset' => 'utf8',
+				'connectionString'=>'DSN for test database',
 			),
 			*/
 		),

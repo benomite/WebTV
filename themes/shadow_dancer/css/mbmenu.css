@@ -1,0 +1,80 @@
+#nav-bar {background-color:#333333;padding:0 17px;  }
+#nav { float:left; margin:0;list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;padding:0;}
+
+/************** ALL LEVELS  *************/
+#nav li { position:relative; text-align:left; }
+#nav li.over { z-index:99; }
+#nav li.active { z-index:100; }
+#nav a,
+#nav a:hover { display:block; text-decoration:none; }
+#nav span { display:block; }
+#nav a { line-height:1.3em; }
+
+
+/************ 1ST LEVEL  ***************/
+#nav li { float:left; background-image:url(../images/el_bg2.png); margin:0; margin-left:0.1em;margin-right:0.1em;padding:3px 10px 3px 10px;  border:solid 1px #222222;border-bottom:none;}
+#nav li.active, #nav li.active a { background-color:#F1F1F1; color:#333; font-weight:normal;  }
+#nav li a:hover{ background-color:#3333;}
+#nav li.active em { display:block; position:absolute; top:0; right:-1px; width:3px; height:27px; }
+#nav a { float:left; padding:0 14px; color:#fff; line-height:27px; }
+#nav li.over a { color:#3333; }
+#nav ul{border:none;}
+
+/************ 1ST LEVEL RESET ************/
+#nav ul li,
+#nav ul li.active { list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;padding:0; float:none; height:auto; background:none; margin:0; border:none;}
+#nav ul li a{border-bottom: solid 1px black; border-left: solid 1px black; border-right: solid 1px black;}
+#nav ul a,
+#nav ul a:hover { float:none; padding:0; line-height:1.5em; font-weight:normal; }
+#nav ul li.over a,
+#nav ul li.over a:hover,
+#nav ul a,
+#nav li.active li { font-weight:normal; background-color:#F1F1F1;}
+
+#nav ul li ul li a:hover{ text-decoration:underline!important;}
+
+
+/************ 2ND LEVEL ************/
+#nav ul { list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;padding:0 0 3px 0; position:absolute; width:189px; top:27px; left:-10000px; border-top:0; }
+#nav ul ul  { list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;padding:0px 0 0 0; border-top:0; left:100px; top:0px; }
+
+/* Show menu */
+#nav li.over ul { left:0px; }
+#nav li.over ul ul { left:-10000px; }
+#nav li.over ul li.over ul { left:100px; }
+
+#nav ul {padding-top:6px;}
+#nav ul li { background:url(nav2_li_bg.png) repeat-y;}
+#nav ul li a { background:#F1F1F1; }
+#nav ul li a:hover { color:#F1F1F1!important; background-color:#333333; }
+#nav li.over ul a,
+#nav ul li.active a,
+#nav ul li a,
+#nav ul li a:hover { color:#2f2f2f; }
+#nav ul span,
+#nav ul li.last li span { padding:5px 15px; background:url(nav2_link_bg.gif) repeat-x 0 100%; }
+#nav ul li.last span,
+#nav ul li.last li.last span { background:none; }
+#nav ul li.last { background:url(nav2_last_li_bg.png) no-repeat 0 100%; padding-bottom:3px; }
+
+#nav ul li.parent a,
+#nav ul li.parent li.parent a { background-image:url(nav2_parent_arrow.gif); background-position:100% 100%; background-repeat:no-repeat; }
+#nav ul li.parent li a,
+#nav ul li.parent li.parent li a { background-image:none; }
+
+/************ 3RD+ LEVEL ************/
+/* Cursors */
+#nav li.parent a,
+#nav li.parent li.parent a,
+#nav li.parent li.parent li.parent a { cursor:default; }
+
+#nav li.parent li a,
+#nav li.parent li.parent li a,
+#nav li.parent li.parent li.parent li a { cursor:pointer; }
+
+/* Show menu */
+#nav ul ul ul { left:-10000px; list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;padding:0; }
+#nav li.over ul li.over ul ul { left:-10000px;}
+#nav li.over ul li.over ul li.over ul { left:100px; }
+
+#nav-bar:after, #nav-container:after { content:"."; display:block; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
