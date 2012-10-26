@@ -1,8 +1,6 @@
 assets/
 protected/runtime/
-themes/classic/views/
 .project
-
+.idea/
 .buildpath
-
 .settings/org.eclipse.php.core.prefs
