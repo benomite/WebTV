@@ -229,6 +229,12 @@ class UserModule extends CWebModule {
 			'YumModule.components.*',
 			'YumModule.core.*',
 		));
+
+        // Set path layout used by YUM modules
+        $this->baseLayout = 'webroot.themes.'.Yii::app()->theme->name.'.views.layouts.main';
+        //$this->loginLayout = 'webroot.themes.'.Yii::app()->theme->name.'.views.layouts.main';
+        //$this->adminLayout = 'webroot.themes.'.Yii::app()->theme->name.'.views.layouts.main';
+        //$this->layout = 'webroot.themes.'.Yii::app()->theme->name.'.views.layouts.main';
 	}
 
 	public function beforeControllerAction($controller, $action) {

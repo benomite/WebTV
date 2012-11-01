@@ -34,24 +34,16 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'Link', 'url'=>'#'),
-                array('label'=>'Dropdown', 'url'=>'#', 'items'=>array(
-                    array('label'=>'Action', 'url'=>'#'),
-                    array('label'=>'Another action', 'url'=>'#'),
-                    array('label'=>'Something else here', 'url'=>'#'),
-                    '---',
-                    array('label'=>'NAV HEADER'),
-                    array('label'=>'Separated link', 'url'=>'#'),
-                    array('label'=>'One more separated link', 'url'=>'#'),
-                )),
+                array('label'=>Yii::t('app','Home'), 'url'=>array('/site/index')),
+                array('label'=>Yii::t('app','Channel'), 'url'=>'#', 'disabled'=>true),
+                array('label'=>Yii::t('app','Programs'), 'url'=>array('/program/index')),
             ),
         ),
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'htmlOptions'=>array('class'=>'pull-right'),
             'items'=>array(
-                array('label'=>'My Account', 'url'=>'#'),
+                array('label'=>'My Account', 'url'=>array('/profile/profile/view/id/'.Yii::app()->user->id)),
                 array('label'=>'Login', 'url'=>array('/user/auth'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),
@@ -79,9 +71,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 </div><!-- page -->
 
 <div id="footer">
-    Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-    All Rights Reserved.<br/>
-    <?php echo Yii::powered(); ?>
+
 </div><!-- footer -->
 
 </body>

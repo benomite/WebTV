@@ -1,28 +1,63 @@
-CREATE TABLE tbl_user (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(128) NOT NULL,
-    password VARCHAR(128) NOT NULL,
-    email VARCHAR(128) NOT NULL
-);
+CREATE TABLE lookup
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(128) NOT NULL,
+	code INTEGER NOT NULL,
+	type VARCHAR(128) NOT NULL,
+	position INTEGER NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO tbl_user (username, password, email) VALUES ('test1', 'pass1', 'test1@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test2', 'pass2', 'test2@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test3', 'pass3', 'test3@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test4', 'pass4', 'test4@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test5', 'pass5', 'test5@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test6', 'pass6', 'test6@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test7', 'pass7', 'test7@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test8', 'pass8', 'test8@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test9', 'pass9', 'test9@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test10', 'pass10', 'test10@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test11', 'pass11', 'test11@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test12', 'pass12', 'test12@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test13', 'pass13', 'test13@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test14', 'pass14', 'test14@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test15', 'pass15', 'test15@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test16', 'pass16', 'test16@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test17', 'pass17', 'test17@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test18', 'pass18', 'test18@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test19', 'pass19', 'test19@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test20', 'pass20', 'test20@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test21', 'pass21', 'test21@example.com');
+CREATE TABLE tag
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(128) NOT NULL,
+	frequency INTEGER DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE program
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(128) NOT NULL,
+	description TEXT NOT NULL,
+	tags TEXT,
+	status INTEGER NOT NULL,
+	create_time INTEGER,
+	update_time INTEGER,
+	author_id INTEGER(10) UNSIGNED NOT NULL,
+	CONSTRAINT FK_program_author FOREIGN KEY (author_id)
+		REFERENCES user (id) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE episode
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(128) NOT NULL,
+	description TEXT,
+	video TEXT NOT NULL,
+	status INTEGER NOT NULL,
+	create_time INTEGER,
+	update_time INTEGER,
+	program_id INTEGER NOT NULL,
+	CONSTRAINT FK_episode_program FOREIGN KEY (program_id)
+		REFERENCES program (id) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE schedule
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  episode_id INTEGER NOT NULL,
+  broadcast_time INTEGER,
+  status INTEGER NOT NULL,
+  CONSTRAINT FK_schedule_episode FOREIGN KEY (episode_id)
+      REFERENCES episode (id) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO lookup (name, type, code, position) VALUES ('Project', 'ProgramStatus', 1, 1);
+INSERT INTO lookup (name, type, code, position) VALUES ('Online', 'ProgramStatus', 2, 2);
+INSERT INTO lookup (name, type, code, position) VALUES ('Archived', 'ProgramStatus', 3, 3);
+INSERT INTO lookup (name, type, code, position) VALUES ('Project', 'EpisodeStatus', 1, 1);
+INSERT INTO lookup (name, type, code, position) VALUES ('Online', 'EpisodeStatus', 2, 2);
+INSERT INTO lookup (name, type, code, position) VALUES ('New', 'ScheduleStatus', 1, 1);
+INSERT INTO lookup (name, type, code, position) VALUES ('Rebroadcast', 'ScheduleStatus', 2, 2);

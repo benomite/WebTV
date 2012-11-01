@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'WeExpectBetterTV',
+	'name'=>'weexbeTV',
     'theme' => 'webTV_1',
     'language' => 'fr',
 
@@ -53,6 +53,7 @@ return array(
         'registration' => array(),
         'profile' => array(),
         'message' => array(),
+        'avatar' => array(),
 	),
 
 	// application components
@@ -67,7 +68,31 @@ return array(
         'bootstrap'=>array(
             'class'=>'ext.bootstrap.components.Bootstrap', // assuming you extracted bootstrap under extensions
         ),
-
+        'image'=>array(
+            'class'=>'ext.imageapi.CImage',
+            'presets'=>array(
+                'main'=>array(
+                    'cacheIn'=>'webroot.repository.main',
+                    'actions'=>array(
+                        'scaleAndCrop'=>array('width'=>640, 'height'=>480),
+                    ),
+                ),
+                'big_thumb'=>array(
+                    'cacheIn'=>'webroot.repository.big_thumb',
+                    'actions'=>array(
+                        'scaleAndCrop'=>array('width'=>210, 'height'=>170),
+                    ),
+                ),
+                'small_thumb'=>array(
+                    'cacheIn'=>'webroot.repository.small_thumb',
+                    'actions'=>array( 'scaleAndCrop'=>array('width'=>40, 'height'=>30) ),
+                ),
+                'icon'=>array(
+                    'cacheIn'=>'webroot.repository.icon',
+                    'actions'=>array( 'scaleAndCrop'=>array('width'=>27, 'height'=>20) ),
+                ),
+            ),
+        ),
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
 			'urlFormat'=>'path',

@@ -4,6 +4,7 @@ protected/runtime/
 .idea/
 .buildpath
 .settings/org.eclipse.php.core.prefs
-.idea/misc.xml
-
+.idea/misc.xm
 .idea/workspace.xml
+images/
+repository/
