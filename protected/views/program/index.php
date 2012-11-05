@@ -8,11 +8,14 @@ $this->menu=array(
 	array('label'=>'Manage Program','url'=>array('admin')),
 );
 ?>
+<div class="row">
+    <h1>Programs</h1>
+</div>
 
-<h1>Programs</h1>
-
-<?php $this->widget('bootstrap.widgets.TbThumbnails', array(
-    'dataProvider'=>$dataProvider,
-    'template'=>"{items}\n{pager}",
-    'itemView'=>'_view',
-)); ?>
+<div class="row">
+    <?php $this->widget('bootstrap.widgets.TbThumbnails', array(
+        'dataProvider'=>$dataProvider,
+        'template'=>"{items}\n{pager}",
+        'itemView'=>'_view',
+    )); ?>
+</div>

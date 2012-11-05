@@ -59,18 +59,24 @@ class EpisodeController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($program)
 	{
 		$model=new Episode;
-
+        $model->program_id = $program;
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Episode']))
 		{
 			$model->attributes=$_POST['Episode'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+            $file = CUploadedFile::getInstance($model,'image');
+            $model->image = uniqid().'-'.$file;
+
+			if($model->save()){
+                $images_path = realpath(Yii::app()->basePath . '/../images');
+                $file->saveAs($images_path . '/' . $model->image);
+                $this->redirect(array('view','id'=>$model->id));
+            }
 		}
 
 		$this->render('create',array(

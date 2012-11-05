@@ -1,3 +1,22 @@
+/*****************************/
+/********* General ***********/
+div#page{
+    border:none;
+}
+
+div#content{
+    padding:0;
+    margin:0;
+}
+
+/*****************************/
+/******* General Colors ******/
+
+
+
+/*****************************/
+/********* ToolBar ***********/
+
 #main-toolbar .navbar-inner {
     border-bottom-left-radius:0;
     border-bottom-right-radius:0;
@@ -6,4 +25,21 @@
 }
 #main-toolbar .navbar-inner .container {
     width:950px;
+}
+#main-toolbar .navbar {
+    margin-bottom: 0;
+}
+
+
+/*****************************/
+/********* Metro *************/
+div.items .thumbnails {
+    margin:0;
+}
+div.items .metro-box {
+    border: 1px solid #C5C5C5;
+    margin:-1px 0 0 -1px;
+    padding:10px;
+    width:219px;
+
 }

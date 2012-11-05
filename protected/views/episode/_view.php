@@ -1,4 +1,5 @@
-<div class="view">
+<div class="row">
+    <div class="span9">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
@@ -28,11 +29,5 @@
 	<?php echo CHtml::encode($data->update_time); ?>
 	<br />
 
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('program_id')); ?>:</b>
-	<?php echo CHtml::encode($data->program_id); ?>
-	<br />
-
-	*/ ?>
-
+    </div>
 </div>

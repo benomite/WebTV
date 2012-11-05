@@ -26,7 +26,7 @@
 <?php
 $this->widget('bootstrap.widgets.TbNavbar', array(
     'type'=>'inverse', // null or 'inverse'
-    'brand'=>'WeExpectBetterTV',
+    'brand'=>'weexbeTV',
     'brandUrl'=>array('/site/index'),
     'fixed' => false,
     'collapse'=>true, // requires bootstrap-responsive.css

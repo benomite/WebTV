@@ -52,6 +52,7 @@ class Episode extends CActiveRecord
 			array('status, create_time, update_time, program_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>128),
 			array('description', 'safe'),
+            array('image', 'file', 'types'=>'jpg, gif, png'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('title, description, status', 'safe', 'on'=>'search'),
@@ -80,6 +81,7 @@ class Episode extends CActiveRecord
 			'id' => 'ID',
 			'title' => 'Title',
 			'description' => 'Description',
+            'image' => 'Image',
 			'video' => 'Video',
 			'status' => 'Status',
 			'create_time' => 'Create Time',
@@ -99,13 +101,12 @@ class Episode extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
+        $criteria->compare('image',$this->image,true);
 		$criteria->compare('video',$this->video,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('create_time',$this->create_time);
-		$criteria->compare('update_time',$this->update_time);
 		$criteria->compare('program_id',$this->program_id);
 
 		return new CActiveDataProvider($this, array(
@@ -123,7 +124,6 @@ class Episode extends CActiveRecord
             if($this->isNewRecord)
             {
                 $this->create_time=$this->update_time=time();
-                $this->author_id=Yii::app()->user->id;
             }
             else
                 $this->update_time=time();

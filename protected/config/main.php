@@ -74,22 +74,14 @@ return array(
                 'main'=>array(
                     'cacheIn'=>'webroot.repository.main',
                     'actions'=>array(
-                        'scaleAndCrop'=>array('width'=>640, 'height'=>480),
+                        'scaleAndCrop'=>array('width'=>440, 'height'=>300),
                     ),
                 ),
                 'big_thumb'=>array(
                     'cacheIn'=>'webroot.repository.big_thumb',
                     'actions'=>array(
-                        'scaleAndCrop'=>array('width'=>210, 'height'=>170),
+                        'scaleAndCrop'=>array('width'=>220, 'height'=>160),
                     ),
-                ),
-                'small_thumb'=>array(
-                    'cacheIn'=>'webroot.repository.small_thumb',
-                    'actions'=>array( 'scaleAndCrop'=>array('width'=>40, 'height'=>30) ),
-                ),
-                'icon'=>array(
-                    'cacheIn'=>'webroot.repository.icon',
-                    'actions'=>array( 'scaleAndCrop'=>array('width'=>27, 'height'=>20) ),
                 ),
             ),
         ),

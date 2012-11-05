@@ -48,10 +48,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'tags',
 		'status',
 		'create_time',
-		/*
-		'update_time',
 		'author_id',
-		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
