@@ -1,33 +1,19 @@
-<div class="row">
-    <div class="span9">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
-	<?php echo CHtml::encode($data->title); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
-	<?php echo CHtml::encode($data->description); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('video')); ?>:</b>
-	<?php echo CHtml::encode($data->video); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
-	<?php echo CHtml::encode($data->status); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
-	<?php echo CHtml::encode($data->create_time); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('update_time')); ?>:</b>
-	<?php echo CHtml::encode($data->update_time); ?>
-	<br />
-
+<div class="row episode-list">
+    <div class="span3">
+        <?php
+        $html_link = "";
+        if(isset($data->image) && $data->image != "") {
+            $path = Yii::app()->image->createUrl('big_thumb', YiiBase::getPathOfAlias('webroot.images').DIRECTORY_SEPARATOR.$data->image);
+            $html_link = CHtml::image($path, $data->title, array());
+        }
+        echo CHtml::link($html_link ,array('/episode/view','id'=>$data->id));
+        ?>
     </div>
+    <div class="span9">
+        <?php
+        echo "<h4>".$data->title."</h4>";
+        echo "<p>".$data->description."</p>";
+        ?>
+    </div>
+
 </div>

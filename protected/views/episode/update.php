@@ -1,6 +1,8 @@
 <?php
 $this->breadcrumbs=array(
-	'Episodes'=>array('index'),
+    'Programs'=>array('program/index'),
+    $model->program->title => array('program/view', 'id'=>$model->program->id),
+    'Episodes'=>array('index'),
 	$model->title=>array('view','id'=>$model->id),
 	'Update',
 );

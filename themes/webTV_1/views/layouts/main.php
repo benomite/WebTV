@@ -22,10 +22,15 @@
 </head>
 
 <body>
+<?php
+if(!Yii::app()->user->isGuest) {
+    $this->widget('dash.components.DashMenuWidget');
+}
+?>
 <div id="main-toolbar">
 <?php
 $this->widget('bootstrap.widgets.TbNavbar', array(
-    'type'=>'inverse', // null or 'inverse'
+    'type'=>null, // null or 'inverse'
     'brand'=>'weexbeTV',
     'brandUrl'=>array('/site/index'),
     'fixed' => false,

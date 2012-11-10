@@ -1,5 +1,7 @@
 <?php
 $this->breadcrumbs=array(
+    'Programs'=>array('program/index'),
+    $model->program->title => array('program/view', 'id'=>$model->program->id),
 	'Episodes'=>array('index'),
 	$model->title,
 );
@@ -13,18 +15,36 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Episode #<?php echo $model->id; ?></h1>
+<div class="row head-row">
+    <div class="span10">
+        <h1>View Episode #<?php echo $model->id; ?></h1>
+    </div>
+</div>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'title',
-		'description',
-		'video',
-		'status',
-		'create_time',
-		'update_time',
-		'program_id',
-	),
-)); ?>
+
+<div class="row episode-view">
+    <div class="span3">
+        <?php
+        $html_link = "";
+        if(isset($model->image) && $model->image != "") {
+            $path = Yii::app()->image->createUrl('big_thumb', YiiBase::getPathOfAlias('webroot.images').DIRECTORY_SEPARATOR.$model->image);
+            $html_link = CHtml::image($path, $model->title, array('class' => "img-polaroid"));
+        }
+        echo CHtml::link($html_link ,array('/episode/view','id'=>$model->id));
+        ?>
+    </div>
+    <div class="span9">
+        <?php
+        echo "<h4>".$model->title."</h4>";
+        echo "<p>".$model->description."</p>";
+        ?>
+    </div>
+
+</div>
+<div class="row episode-video">
+    <div class="main-video">
+        <?php
+        echo $model->video;
+        ?>
+    </div>
+</div>

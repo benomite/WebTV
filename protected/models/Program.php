@@ -57,7 +57,7 @@ class Program extends CActiveRecord
             array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/',
                 'message'=>'Tags can only contain word characters.'),
             array('tags', 'normalizeTags'),
-            array('image', 'file', 'types'=>'jpg, gif, png'),
+            array('image', 'file', 'types'=>'jpg, gif, png', 'on' => 'insert',),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('title, description, tags, status', 'safe', 'on'=>'search'),

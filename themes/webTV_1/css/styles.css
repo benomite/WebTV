@@ -9,6 +9,14 @@ div#content{
     margin:0;
 }
 
+div.head-row{
+    margin-top:30px;
+    margin-bottom:40px;
+}
+div.head-row h1{
+    margin:0;
+}
+
 /*****************************/
 /******* General Colors ******/
 
@@ -41,5 +49,28 @@ div.items .metro-box {
     margin:-1px 0 0 -1px;
     padding:10px;
     width:219px;
+    height:190px;
+}
 
+/******************************/
+/******* Episode List *********/
+div.episode-list {
+    margin-top:20px;
+    border-top: 1px solid #C5C5C5;
+    padding-top:10px;
+}
+
+/******************************/
+/******* Episode View *********/
+div.episode-view {
+    margin-bottom: 10px;
+}
+div.episode-video {
+    margin: 40px 0 10px 0;
+    padding: 10px 0;
+    border: 1px solid #C5C5C5;
+    text-align: center;
+}
+div.main-video{
+    margin: auto;
 }
