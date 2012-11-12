@@ -14,7 +14,7 @@
 
     <?php echo $form->fileFieldRow($model, 'image'); ?>
 
-	<?php echo $form->textAreaRow($model,'video',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
+	<?php echo $form->textAreaRow($model,'video',array('rows'=>4, 'cols'=>50, 'class'=>'span8')); ?>
 
 	<?php echo $form->dropDownList($model,'status', Lookup::items('EpisodeStatus'), array('class'=>'span5')); ?>
 

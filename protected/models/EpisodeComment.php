@@ -1,31 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "episode".
+ * This is the model class for table "episode_comment".
  *
- * The followings are the available columns in table 'episode':
+ * The followings are the available columns in table 'episode_comment':
  * @property integer $id
- * @property string $title
- * @property string $description
- * @property string $video
+ * @property string $content
+ * @property integer $episode_id
+ * @property string $author_id
  * @property integer $status
  * @property integer $create_time
- * @property integer $update_time
- * @property integer $program_id
- *
- * The followings are the available model relations:
- * @property Program $program
- * @property Schedule[] $schedules
  */
-class Episode extends CActiveRecord
+class EpisodeComment extends CActiveRecord
 {
-    const STATUS_PROJECT=1;
-    const STATUS_ONLINE=2;
+    const STATUS_VALID = 1;
+    const STATUS_DELETED = 2;
 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Episode the static model class
+	 * @return EpisodeComment the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -37,7 +31,7 @@ class Episode extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'episode';
+		return 'episode_comment';
 	}
 
 	/**
@@ -48,14 +42,10 @@ class Episode extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, video, status, program_id', 'required'),
-			array('status', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>128),
-			array('description', 'safe'),
-            array('image', 'file', 'types'=>'jpg, gif, png'),
+			array('content', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('title, description, status', 'safe', 'on'=>'search'),
+			array('content, episode_id, author_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,13 +56,10 @@ class Episode extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-			'program' => array(self::BELONGS_TO, 'Program', 'program_id'),
-            'comments' => array(self::HAS_MANY, 'EpisodeComment', 'episode_id'),
-            'commentCount' => array(self::STAT, 'EpisodeComment', 'episode_id',
-                'condition'=>'status='.EpisodeComment::STATUS_VALID),
-			'schedules' => array(self::HAS_MANY, 'Schedule', 'episode_id'),
-		);
+        return array(
+            'episode' => array(self::BELONGS_TO, 'Episode', 'episode_id'),
+            'author' => array(self::BELONGS_TO, 'User', 'author_id'),
+        );
 	}
 
 	/**
@@ -82,14 +69,11 @@ class Episode extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-            'image' => 'Image',
-			'video' => 'Video',
+			'content' => 'Comment',
+			'episode_id' => 'Episode',
+			'author_id' => 'Author',
 			'status' => 'Status',
 			'create_time' => 'Create Time',
-			'update_time' => 'Update Time',
-			'program_id' => 'Program',
 		);
 	}
 
@@ -104,38 +88,31 @@ class Episode extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-        $criteria->compare('image',$this->image,true);
-		$criteria->compare('video',$this->video,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('content',$this->content,true);
+		$criteria->compare('episode_id',$this->episode_id);
+		$criteria->compare('author_id',$this->author_id,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('create_time',$this->create_time);
-		$criteria->compare('program_id',$this->program_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 
-    public function addComment($comment)
-    {
-        $comment->episode_id = $this->id;
-        return $comment->save();
-    }
-
-    /*
-     *
-     */
     protected function beforeSave()
     {
         if(parent::beforeSave())
         {
             if($this->isNewRecord)
             {
-                $this->create_time=$this->update_time=time();
+                $this->create_time=time();
+                $this->author_id=Yii::app()->user->id;
             }
-            else
-                $this->update_time=time();
+
+            if(!isset($this->status)){
+                $this->status = self::STATUS_VALID;
+            }
             return true;
         }
         else

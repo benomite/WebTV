@@ -1,6 +1,6 @@
 <?php
 
-class EpisodeController extends Controller
+class EpisodeCommentController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -50,12 +50,8 @@ class EpisodeController extends Controller
 	 */
 	public function actionView($id)
 	{
-        $episode=$this->loadModel($id);
-        $comment=$this->newComment($episode);
-
 		$this->render('view',array(
-			'model'=>$episode,
-            'comment'=>$comment,
+			'model'=>$this->loadModel($id),
 		));
 	}
 
@@ -63,25 +59,19 @@ class EpisodeController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate($program)
+	public function actionCreate()
 	{
-		$model=new Episode;
-        $model->program_id = $program;
+        die('toto');
+		$model=new EpisodeComment;
+
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Episode']))
+		if(isset($_POST['EpisodeComment']))
 		{
-			$model->attributes=$_POST['Episode'];
-            $file = CUploadedFile::getInstance($model,'image');
-            $model->image = uniqid().'-'.$file;
-
-			if($model->save()){
-                $images_path = realpath(Yii::app()->basePath . '/../images');
-                $file->saveAs($images_path . '/' . $model->image);
-                $this->redirect(array('view','id'=>$model->id));
-                return;
-            }
+			$model->attributes=$_POST['EpisodeComment'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -99,24 +89,13 @@ class EpisodeController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Episode']))
+		if(isset($_POST['EpisodeComment']))
 		{
-            $model->attributes=$_POST['Episode'];
-            $file = CUploadedFile::getInstance($model,'image');
-            if($file) {
-                $model->image = uniqid().'-'.$file;
-            }
-
-            if($model->save()){
-                if ($file){
-                    $images_path = realpath(Yii::app()->basePath . '/../images');
-                    $file->saveAs($images_path . '/' . $model->image);
-                }
-                $this->redirect(array('view','id'=>$model->id));
-                return;
-            }
+			$model->attributes=$_POST['EpisodeComment'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
@@ -149,7 +128,7 @@ class EpisodeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Episode');
+		$dataProvider=new CActiveDataProvider('EpisodeComment');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -160,10 +139,10 @@ class EpisodeController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Episode('search');
+		$model=new EpisodeComment('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Episode']))
-			$model->attributes=$_GET['Episode'];
+		if(isset($_GET['EpisodeComment']))
+			$model->attributes=$_GET['EpisodeComment'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -177,7 +156,7 @@ class EpisodeController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Episode::model()->findByPk($id);
+		$model=EpisodeComment::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -189,26 +168,10 @@ class EpisodeController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='episode-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='episode-comment-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
-
-    protected function newComment($episode)
-    {
-        $comment = new EpisodeComment();
-
-        if(isset($_POST['EpisodeComment']))
-        {
-            $comment->attributes=$_POST['EpisodeComment'];
-            if($episode->addComment($comment))
-            {
-                Yii::app()->user->setFlash('commentSubmitted','Thank you for your comment.');
-                $this->refresh();
-            }
-        }
-        return $comment;
-    }
 }
