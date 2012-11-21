@@ -1,0 +1,95 @@
+/**
+ * Blocks
+ */
+.dash-block
+{
+  background: #EFFDFF;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 240px;
+}
+
+.dash-block h2
+{
+  background: #B7D6E7;
+  border-left: 5px solid #6FACCF;
+  color: #298dcd;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 3px 8px;
+  position: static;
+  margin: 0;
+}
+
+.dash-block ul
+{
+  font-size: 0.9em;
+  margin: 0;
+  padding: 5px 8px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+.dash-block li
+{
+  padding: 2px 0;
+}
+
+.dash-block li a
+{
+  color: #0066A4;
+  display: block;
+  font-weight: bold;
+  padding: 2px 0 2px 8px;
+  line-height: 15px;
+  text-decoration: none;
+}
+
+.dash-block li a:visited
+{
+  color: #0066A4;
+}
+
+.dash-block li a:hover
+{
+  background: #80CFFF;
+}
+
+/**
+ * Order Elements
+ */
+#orderList
+{
+  padding: 0;
+}
+#orderList li
+{
+  background: #f8f8f8; 
+  border: 1px solid #fff;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  list-style-image: url(../img/move.png);
+  list-style-position: inside;
+  margin: 0;
+  padding: .5em;
+}
+#orderList li:nth-child(2n)
+{
+  background: #E5F1F4;
+}
+#orderList li:hover
+{
+  background: #ECFBD4;
+}
+#orderList li.ui-sortable-helper
+{
+  background: #BCE774;
+}
+#orderList .type
+{
+  color: #bababa;
+  font-size: 10px;
+  text-transform: uppercase;
+}

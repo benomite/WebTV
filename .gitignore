@@ -1,4 +1,4 @@
-assets/
+/assets/
 protected/runtime/
 .project
 .idea/
@@ -6,5 +6,6 @@ protected/runtime/
 .settings/org.eclipse.php.core.prefs
 .idea/misc.xm
 .idea/workspace.xml
+.DS_Store
 images/
 repository/
