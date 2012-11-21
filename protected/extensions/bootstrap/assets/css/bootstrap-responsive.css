@@ -1,5 +1,9 @@
 /*!
+<<<<<<< HEAD
  * Bootstrap Responsive v2.1.1
+=======
+ * Bootstrap Responsive v2.2.1
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
  *
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -215,6 +219,12 @@
   .row-fluid [class*="span"]:first-child {
     margin-left: 0;
   }
+<<<<<<< HEAD
+=======
+  .row-fluid .controls-row [class*="span"] + [class*="span"] {
+    margin-left: 2.564102564102564%;
+  }
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
   .row-fluid .span12 {
     width: 100%;
     *width: 99.94680851063829%;
@@ -562,6 +572,12 @@
   .row-fluid [class*="span"]:first-child {
     margin-left: 0;
   }
+<<<<<<< HEAD
+=======
+  .row-fluid .controls-row [class*="span"] + [class*="span"] {
+    margin-left: 2.7624309392265194%;
+  }
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
   .row-fluid .span12 {
     width: 100%;
     *width: 99.94680851063829%;
@@ -814,6 +830,10 @@
     margin-left: 0;
   }
   [class*="span"],
+<<<<<<< HEAD
+=======
+  .uneditable-input[class*="span"],
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
   .row-fluid [class*="span"] {
     display: block;
     float: none;
@@ -830,6 +850,12 @@
        -moz-box-sizing: border-box;
             box-sizing: border-box;
   }
+<<<<<<< HEAD
+=======
+  .row-fluid [class*="offset"]:first-child {
+    margin-left: 0;
+  }
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
   .input-large,
   .input-xlarge,
   .input-xxlarge,
@@ -862,8 +888,16 @@
     width: auto;
     margin: 0;
   }
+<<<<<<< HEAD
   .modal.fade.in {
     top: auto;
+=======
+  .modal.fade {
+    top: -100px;
+  }
+  .modal.fade.in {
+    top: 20px;
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
   }
 }
 
@@ -895,6 +929,19 @@
     padding-right: 10px;
     padding-left: 10px;
   }
+<<<<<<< HEAD
+=======
+  .media .pull-left,
+  .media .pull-right {
+    display: block;
+    float: none;
+    margin-bottom: 10px;
+  }
+  .media-object {
+    margin-right: 0;
+    margin-left: 0;
+  }
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
   .modal {
     top: 10px;
     right: 10px;
@@ -979,6 +1026,13 @@
   .nav-collapse .dropdown-menu a:hover {
     background-color: #f2f2f2;
   }
+<<<<<<< HEAD
+=======
+  .navbar-inverse .nav-collapse .nav > li > a,
+  .navbar-inverse .nav-collapse .dropdown-menu a {
+    color: #999999;
+  }
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
   .navbar-inverse .nav-collapse .nav > li > a:hover,
   .navbar-inverse .nav-collapse .dropdown-menu a:hover {
     background-color: #111111;
@@ -991,7 +1045,11 @@
     position: static;
     top: auto;
     left: auto;
+<<<<<<< HEAD
     display: block;
+=======
+    display: none;
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
     float: none;
     max-width: none;
     padding: 0;
@@ -1005,6 +1063,12 @@
        -moz-box-shadow: none;
             box-shadow: none;
   }
+<<<<<<< HEAD
+=======
+  .nav-collapse .open > .dropdown-menu {
+    display: block;
+  }
+>>>>>>> ba944eeef317e6c1c1aa3521c31e55153eec5572
   .nav-collapse .dropdown-menu:before,
   .nav-collapse .dropdown-menu:after {
     display: none;
