@@ -57,7 +57,7 @@ class Program extends CActiveRecord
             array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/',
                 'message'=>'Tags can only contain word characters.'),
             array('tags', 'normalizeTags'),
-            array('image', 'file', 'types'=>'jpg, gif, png', 'on' => 'insert',),
+            array('image', 'file', 'types'=>'jpg, gif, png', 'on' => 'insert'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('title, description, tags, status', 'safe', 'on'=>'search'),
@@ -78,7 +78,7 @@ class Program extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'episodes' => array(self::HAS_MANY, 'Episode', 'program_id'),
-			'author' => array(self::BELONGS_TO, 'User', 'author_id'),
+			'author' => array(self::BELONGS_TO, 'YumUser', 'author_id'),
             'episodeCount' => array(self::STAT, 'Episode', 'program_id',
                 'condition'=>'status='.Episode::STATUS_ONLINE),
 		);

@@ -1,23 +1,36 @@
 <?php
 $this->breadcrumbs=array(
-    'Programs'=>array('program/index'),
+    Yii::t('program', 'Programs') => array('program/index'),
     $model->program->title => array('program/view', 'id'=>$model->program->id),
-	'Episodes'=>array('index'),
+    Yii::t('program', 'Episodes') => array('program/view', 'id'=>$model->program->id),
 	$model->title,
 );
 
 $this->menu=array(
-	array('label'=>'List Episode','url'=>array('index')),
-	array('label'=>'Create Episode','url'=>array('create')),
-	array('label'=>'Update Episode','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete Episode','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Episode','url'=>array('admin')),
+	array('label'=>Yii::t('program', 'List Episode'),'url'=>array('index')),
+	array('label'=>Yii::t('program', 'Create Episode'),'url'=>array('create')),
+	array('label'=>Yii::t('program', 'Update Episode'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('program', 'Delete Episode'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>Yii::t('program', 'Are you sure you want to delete this item?'))),
+	array('label'=>Yii::t('program', 'Manage Episode'),'url'=>array('admin')),
 );
 ?>
 
 <div class="row head-row">
-    <div class="span10">
-        <h1>View Episode #<?php echo $model->id; ?></h1>
+    <div class="span9">
+        <h1><?php echo $model->getFullTitle(); ?></h1>
+    </div>
+    <div class="span3">
+        <div class="pull-right">
+            <?php
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'label'=>Yii::t('program','Update Episode'),
+                'url'=>array('/episode/update', 'id'=>$model->id),
+                'type'=>'primary', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+                'size'=>null, // null, 'large', 'small' or 'mini'
+                'icon'=>'icon-edit',
+            ));
+            ?>
+        </div>
     </div>
 </div>
 
@@ -54,6 +67,16 @@ $this->menu=array(
             <?php echo Yii::app()->user->getFlash('commentSubmitted'); ?>
         </div>
         <?php else: ?>
+        <?php
+        $this->widget('bootstrap.widgets.TbAlert', array(
+            'block'=>true, // display a larger alert block?
+            'fade'=>true, // use transitions?
+            'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+            /*'alerts'=>array( // configurations per alert type
+                'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), // success, info, warning, error or danger
+            ),*/
+        ));
+        ?>
         <?php $this->renderPartial('/episodeComment/_form',array(
             'model'=>$comment,
         )); ?>

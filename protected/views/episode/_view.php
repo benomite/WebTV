@@ -11,7 +11,7 @@
     </div>
     <div class="span9">
         <?php
-        echo "<h4>".$data->title."</h4>";
+        echo "<h4>".$data->getFullTitle()."</h4>";
         echo "<p>".$data->description."</p>";
         ?>
     </div>

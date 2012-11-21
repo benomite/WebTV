@@ -205,7 +205,7 @@ class EpisodeController extends Controller
             $comment->attributes=$_POST['EpisodeComment'];
             if($episode->addComment($comment))
             {
-                Yii::app()->user->setFlash('commentSubmitted','Thank you for your comment.');
+                Yii::app()->user->setFlash('success',Yii::t('program','Thank you for your comment.'));
                 $this->refresh();
             }
         }

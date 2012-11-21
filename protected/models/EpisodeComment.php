@@ -58,7 +58,7 @@ class EpisodeComment extends CActiveRecord
 		// class name for the relations automatically generated below.
         return array(
             'episode' => array(self::BELONGS_TO, 'Episode', 'episode_id'),
-            'author' => array(self::BELONGS_TO, 'User', 'author_id'),
+            'author' => array(self::BELONGS_TO, 'YumUser', 'author_id'),
         );
 	}
 
