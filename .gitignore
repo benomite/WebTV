@@ -1,5 +1,5 @@
-/assets/
-protected/runtime/
+/assets/*
+protected/runtime/*
 .project
 .idea/
 .buildpath
