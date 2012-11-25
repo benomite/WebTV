@@ -34,13 +34,9 @@ $items = array_merge($items, array(
     'import'=>array(
         'application.models.*',
         'application.components.*',
-
-        //YUM User modules
+        // user module
         'application.modules.user.models.*',
-        'application.modules.role.models.*',
-        'application.modules.registration.models.*',
-        'application.modules.profile.models.*',
-        'application.modules.message.models.*',
+        'application.modules.user.components.*',
     ),
 
     'modules'=>array(
@@ -55,30 +51,23 @@ $items = array_merge($items, array(
                 'bootstrap.gii',
             ),
         ),
-        'user' => array(
-            'passwordRequirements' => array(
-                'minLen' => 4,
-                //'maxLen' => 16,
-            ),
-            'adminlayout' => '//layouts/main',
+        'user'=>array(
+            'hash' => 'md5',   // encrypting method (php hash function)
+            'sendActivationMail' => true,    // send activation email
+            'loginNotActiv' => false,   // allow access for non-activated users
+            'activeAfterRegister' => false, // activate user on registration (only sendActivationMail = false)
+            'autoLogin' => true,    // automatically login from registration
+            'registrationUrl' => array('/user/registration'),    // registration path
+            'recoveryUrl' => array('/user/recovery'),   // recovery password path
+            'loginUrl' => array('/user/login'), // login form path
+            'returnUrl' => array('/user/profile'),  // page after login
+            'returnLogoutUrl' => array('/user/login'),  // page after logout
         ),
-        'role' => array(),
-        'registration' => array(),
-        'profile' => array(),
-        'message' => array(),
-        'avatar' => array(),
         'dash' => array(),
     ),
 
     // application components
     'components'=>array(
-        'user'=>array(
-            // enable cookie-based authentication
-            //'allowAutoLogin'=>true,
-            'class' => 'application.modules.user.components.YumWebUser',
-            'allowAutoLogin'=>true,
-            'loginUrl' => array('//user/user/login'),
-        ),
         'bootstrap'=>array(
             'class'=>'ext.bootstrap.components.Bootstrap', // assuming you extracted bootstrap under extensions
         ),
@@ -98,6 +87,12 @@ $items = array_merge($items, array(
                     ),
                 ),
             ),
+        ),
+        'user'=>array(
+            // enable cookie-based authentication
+            'class' => 'WebUser',
+            'allowAutoLogin'=>true,
+            'loginUrl' => array('/user/login'),
         ),
         // uncomment the following to enable URLs in path-format
         'urlManager'=>array(

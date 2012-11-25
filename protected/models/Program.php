@@ -78,7 +78,7 @@ class Program extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'episodes' => array(self::HAS_MANY, 'Episode', 'program_id'),
-			'author' => array(self::BELONGS_TO, 'YumUser', 'author_id'),
+			'author' => array(self::BELONGS_TO, 'User', 'author_id'),
             'episodeCount' => array(self::STAT, 'Episode', 'program_id',
                 'condition'=>'status='.Episode::STATUS_ONLINE),
 		);
