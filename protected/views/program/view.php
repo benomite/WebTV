@@ -16,7 +16,7 @@ $this->menu=array(
 
 <div class="row head-row">
     <div class="span9">
-        <h1>Program <?php echo $model->title; ?></h1>
+        <h1><?php echo $model->title; ?></h1>
     </div>
     <div class="span3">
         <div class="pull-right">

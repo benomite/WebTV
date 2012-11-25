@@ -1,16 +1,16 @@
 <?php
 $this->breadcrumbs=array(
-	'Programs',
+	Yii::t('program', 'Programs'),
 );
 
 $this->menu=array(
-	array('label'=>'Create Program','url'=>array('create')),
-	array('label'=>'Manage Program','url'=>array('admin')),
+	array('label'=>Yii::t('program', 'Create Program'),'url'=>array('create')),
+	array('label'=>Yii::t('program', 'Manage Program'),'url'=>array('admin')),
 );
 ?>
 <div class="row head-row">
     <div class="span9">
-        <h1>Programs</h1>
+        <h1><?php Yii::t('program', 'Programs'); ?></h1>
     </div>
     <div class="span3">
         <div class="pull-right">

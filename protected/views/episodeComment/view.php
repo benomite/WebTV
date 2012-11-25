@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Episode Comments'=>array('index'),
+	Yii::t('program', 'Episode Comments')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List EpisodeComment','url'=>array('index')),
-	array('label'=>'Create EpisodeComment','url'=>array('create')),
-	array('label'=>'Update EpisodeComment','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete EpisodeComment','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage EpisodeComment','url'=>array('admin')),
+	array('label'=>Yii::t('program', 'List Comments'),'url'=>array('index')),
+	array('label'=>Yii::t('program', 'Create Comment'),'url'=>array('create')),
+	array('label'=>Yii::t('program', 'Update Comment'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('program', 'Delete Comment'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('program', 'Manage Comments'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View EpisodeComment #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('program', 'View Comment'); ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

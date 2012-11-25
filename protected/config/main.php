@@ -37,6 +37,9 @@ $items = array_merge($items, array(
         // user module
         'application.modules.user.models.*',
         'application.modules.user.components.*',
+        // rights module
+        'application.modules.rights.*',
+        'application.modules.rights.components.*',
     ),
 
     'modules'=>array(
@@ -62,6 +65,10 @@ $items = array_merge($items, array(
             'loginUrl' => array('/user/login'), // login form path
             'returnUrl' => array('/user/profile'),  // page after login
             'returnLogoutUrl' => array('/user/login'),  // page after logout
+        ),
+        'rights'=>array(
+            'superuserName'=>'admin',
+            'install'=>false,	// Whether to enable installer.
         ),
         'dash' => array(),
     ),
@@ -90,9 +97,12 @@ $items = array_merge($items, array(
         ),
         'user'=>array(
             // enable cookie-based authentication
-            'class' => 'WebUser',
+            'class' => 'RWebUser',
             'allowAutoLogin'=>true,
             'loginUrl' => array('/user/login'),
+        ),
+        'authManager'=>array(
+            'class'=>'RDbAuthManager',	// Provides support authorization item sorting.
         ),
         // uncomment the following to enable URLs in path-format
         'urlManager'=>array(

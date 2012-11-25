@@ -40,7 +40,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
                 array('label'=>Yii::t('app','Home'), 'url'=>array('/site/index')),
-                array('label'=>Yii::t('app','Channel'), 'url'=>'#', 'disabled'=>true),
+                array('label'=>Yii::t('app','How it works'), 'url'=>array('/site/howitworks')),
                 array('label'=>Yii::t('app','Programs'), 'url'=>array('/program/index')),
             ),
         ),

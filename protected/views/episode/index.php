@@ -1,11 +1,11 @@
 <?php
 $this->breadcrumbs=array(
-	'Episodes',
+    Yii::t('program', 'Episodes'),
 );
 
 $this->menu=array(
-	array('label'=>'Create Episode','url'=>array('create')),
-	array('label'=>'Manage Episode','url'=>array('admin')),
+	array('label'=>Yii::t('program', 'Create Episode'),'url'=>array('create')),
+	array('label'=>Yii::t('program', 'Manage Episode'),'url'=>array('admin')),
 );
 ?>
 

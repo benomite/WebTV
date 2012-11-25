@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Episodes'=>array('index'),
-	'Create',
+    Yii::t('program', 'Episodes')=>array('index'),
+    Yii::t('program', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Episode','url'=>array('index')),
-	array('label'=>'Manage Episode','url'=>array('admin')),
+	array('label'=>Yii::t('program', 'List Episode'),'url'=>array('index')),
+	array('label'=>Yii::t('program', 'Manage Episode'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Episode</h1>
+<h1><?php echo Yii::t('program', 'Create Episode'); ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -1,20 +1,21 @@
 <?php
 $this->breadcrumbs=array(
-    'Programs'=>array('program/index'),
+    Yii::t('program', 'Programs')=>array('program/index'),
     $model->program->title => array('program/view', 'id'=>$model->program->id),
-    'Episodes'=>array('index'),
+    Yii::t('program', 'Episodes')=>array('index'),
 	$model->title=>array('view','id'=>$model->id),
-	'Update',
+    Yii::t('program', 'Update'),
 );
 
 $this->menu=array(
-	array('label'=>'List Episode','url'=>array('index')),
-	array('label'=>'Create Episode','url'=>array('create')),
-	array('label'=>'View Episode','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage Episode','url'=>array('admin')),
+	array('label'=>Yii::t('program', 'List Episode'),'url'=>array('index')),
+	array('label'=>Yii::t('program', 'Create Episode'),'url'=>array('create')),
+	array('label'=>Yii::t('program', 'View Episode'),'url'=>array('view','id'=>$model->id)),
+	array('label'=>Yii::t('program', 'Manage Episode'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Episode <?php echo $model->id; ?></h1>
+<h1><?php Yii::t('program', 'Update Episode');
+    echo $model->title; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

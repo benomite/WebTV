@@ -4,7 +4,7 @@
     'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
-	<p class="help-block"><?php echo Yii::t('Site', 'Fields with <span class="required">*</span> are required.'); ?></p>
+	<p class="help-block"><?php echo Yii::t('app', 'Fields with <span class="required">*</span> are required.'); ?></p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -30,7 +30,7 @@
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
-			'label'=>$model->isNewRecord ? Yii::t('Site', 'Create') : Yii::t('Site', 'Save'),
+			'label'=>$model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'),
 		)); ?>
 	</div>
 
