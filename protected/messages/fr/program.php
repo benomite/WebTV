@@ -2,7 +2,7 @@
 
 return array(
     'List Program' => 'Lister les programmes',
-    'Create Program' => 'Créer les programmes',
+    'Create Program' => 'Créer un programme',
     'Create' => 'Créer',
     'Update Program' => 'Mettre à jour le programme',
     'Update' => 'Mettre à jour',
