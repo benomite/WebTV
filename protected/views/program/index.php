@@ -10,7 +10,7 @@ $this->menu=array(
 ?>
 <div class="row head-row">
     <div class="span9">
-        <h1><?php Yii::t('program', 'Programs'); ?></h1>
+        <h1><?php echo Yii::t('program', 'Programs'); ?></h1>
     </div>
     <div class="span3">
         <div class="pull-right">
@@ -28,7 +28,9 @@ $this->menu=array(
 </div>
 
 <div class="row">
-    <?php $this->widget('bootstrap.widgets.TbThumbnails', array(
+    <?php
+
+    $this->widget('bootstrap.widgets.TbThumbnails', array(
         'dataProvider'=>$dataProvider,
         'template'=>"{items}\n{pager}",
         'itemView'=>'_view',

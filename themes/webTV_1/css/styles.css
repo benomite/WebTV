@@ -32,7 +32,7 @@ div.head-row h1{
     border-top-right-radius:0;
 }
 #main-toolbar .navbar-inner .container {
-    width:950px;
+    /*width:950px;*/
 }
 #main-toolbar .navbar {
     margin-bottom: 0;
@@ -42,11 +42,11 @@ div.head-row h1{
 /*****************************/
 /********* Metro *************/
 div.items .thumbnails {
-    margin:0;
+    /*margin:0;*/
 }
 div.items .metro-box {
     border: 1px solid #C5C5C5;
-    margin:-1px 0 0 -1px;
+    /*margin:-1px 0 0 -1px;*/
     padding:10px;
     width:219px;
     height:190px;

@@ -1,4 +1,4 @@
-<div class="span3 metro-box metro-box-small">
+<div class="span3">
 
     <?php
         $html_link = "";

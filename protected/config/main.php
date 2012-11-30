@@ -77,6 +77,7 @@ $items = array_merge($items, array(
     'components'=>array(
         'bootstrap'=>array(
             'class'=>'ext.bootstrap.components.Bootstrap', // assuming you extracted bootstrap under extensions
+            'responsiveCss' => true,
         ),
         'image'=>array(
             'class'=>'ext.imageapi.CImage',
