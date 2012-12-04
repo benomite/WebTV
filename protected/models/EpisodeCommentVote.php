@@ -89,4 +89,20 @@ class EpisodeCommentVote extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    protected function beforeSave()
+    {
+        if(parent::beforeSave())
+        {
+            if($this->isNewRecord)
+            {
+                $this->vote_time=time();
+                $this->user_id=Yii::app()->user->id;
+            }
+
+            return true;
+        }
+        else
+            return false;
+    }
 }

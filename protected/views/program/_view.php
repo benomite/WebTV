@@ -4,7 +4,7 @@
         $html_link = "";
         if(isset($data->image) && $data->image != "") {
             $path = Yii::app()->image->createUrl('big_thumb', YiiBase::getPathOfAlias('webroot.images').DIRECTORY_SEPARATOR.$data->image);
-            $html_link = CHtml::image($path, $data->title, array());
+            $html_link = CHtml::image($path, $data->title, array('class'=>'big_thumb'));
         }
 
 

@@ -57,7 +57,11 @@ class Program extends CActiveRecord
             array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/',
                 'message'=>'Tags can only contain word characters.'),
             array('tags', 'normalizeTags'),
-            array('image', 'file', 'types'=>'jpg, gif, png', 'on' => 'insert'),
+            array('image', 'file',
+                'types'=>'jpg, gif, png',
+                'maxSize'=>2202000,
+                'tooLarge'=>Yii::t('app', 'The file was larger than 2M. Please upload a smaller file.'),
+                'on' => 'insert'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('title, description, tags, status', 'safe', 'on'=>'search'),

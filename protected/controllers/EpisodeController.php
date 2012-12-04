@@ -50,6 +50,8 @@ class EpisodeController extends Controller
 	 */
 	public function actionView($id)
 	{
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/episodeComment.js');
+
         $episode=$this->loadModel($id);
         $comment=$this->newComment($episode);
 

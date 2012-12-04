@@ -12,6 +12,24 @@
         </div>
     </div>
     <div class="span2">
-        <?php echo $data->votes; ?>
+        <span class="<?php echo $data->id; ?>">
+            <?php $this->widget('bootstrap.widgets.TbButton',array(
+                'icon' => 'thumbs-down',
+                'type' => 'danger',
+                'size' => 'small',
+                'htmlOptions' => array('class'=>'down-vote'),
+            ));?>
+        </span>
+        <span class="vote-num">
+            <?php echo $data->votes; ?>
+        </span>
+        <span class="<?php echo $data->id; ?>">
+            <?php $this->widget('bootstrap.widgets.TbButton',array(
+                'icon' => 'thumbs-up',
+                'type' => 'success',
+                'size' => 'small',
+                'htmlOptions' => array('class'=>'up-vote'),
+            )); ?>
+        </span>
     </div>
 </div>

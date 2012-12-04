@@ -31,7 +31,7 @@ class EpisodeCommentController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'updateVoteAjax'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -61,7 +61,6 @@ class EpisodeCommentController extends Controller
 	 */
 	public function actionCreate()
 	{
-        die('toto');
 		$model=new EpisodeComment;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -102,6 +101,23 @@ class EpisodeCommentController extends Controller
 			'model'=>$model,
 		));
 	}
+
+    public function actionUpdateVoteAjax(){
+
+        if(isset($_REQUEST['comment']) && isset($_REQUEST['value']))
+        {
+            $vote = new EpisodeCommentVote();
+            $vote->episode_comment_id = $_REQUEST['comment'];
+            $vote->value = $_REQUEST['value'];
+            $vote->save();
+
+            $model=$this->loadModel($_REQUEST['comment']);
+            //$newSum = $model->votes + $vote->value;
+
+            echo $model->votes;
+        }
+        die;
+    }
 
 	/**
 	 * Deletes a particular model.

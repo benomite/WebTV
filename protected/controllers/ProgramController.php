@@ -141,10 +141,25 @@ class ProgramController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Program');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+        $criteria = new CDbCriteria();
+        //$criteria->condition = 'collumnName1 = :id';
+        $criteria->order = 'create_time DESC';
+        //$criteria->params = array (':id'=>$id);
+
+        $item_count = Program::model()->count($criteria);
+
+        $pages = new CPagination($item_count);
+        //$pages->setPageSize(Yii::app()->params['listPerPage']);
+        $pages->setPageSize(16);
+        $pages->applyLimit($criteria);  // the trick is here!
+
+
+        $this->render('index',array(
+            'model'=> Program::model()->findAll($criteria), // must be the same as $item_count
+            'item_count'=>$item_count,
+            'page_size'=>16,
+            'pages'=>$pages,
+        ));
 	}
 
 	/**
