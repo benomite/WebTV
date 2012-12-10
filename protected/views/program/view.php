@@ -26,7 +26,7 @@ $this->menu=array(
                 'url'=>array('/episode/create', 'program'=>$model->id),
                 'type'=>'primary', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'size'=>null, // null, 'large', 'small' or 'mini'
-                'icon'=>'icon-plus',
+                'icon'=>'icon-plus icon-white',
             ));
             ?>
         </div>

@@ -19,6 +19,47 @@ div.head-row h1{
 
 /*****************************/
 /******* General Colors ******/
+#main-toolbar .navbar-inner{
+    background-color:#330066;
+    background-image: -webkit-linear-gradient(top, #9933FF, #330066);
+}
+#main-toolbar .navbar-inverse .nav .active > a, #main-toolbar .navbar-inverse .nav .active > a:hover, #main-toolbar .navbar-inverse .nav .active > a:focus {
+    background-color:#330066;
+    color:#FFFFFF;
+}
+#main-toolbar .btn-navbar{
+    background-color:#FFFFFF;
+    background-image:-webkit-linear-gradient(top, #FFFFFF, #EFEFEF);
+}
+#main-toolbar .btn-navbar .icon-bar{
+    background-color:#330066;
+}
+#footer{
+    background-color:#330066;
+}
+.weexbe .btn-primary {
+    background-color:#330066;
+    *background-color: #330066;
+    background-image:-webkit-linear-gradient(top, #9933FF, #330066);
+    color:#FFFFFF;
+}
+.weexbe .btn-primary:hover,
+.weexbe .btn-primary:active,
+.weexbe .btn-primary.active,
+.weexbe .btn-primary.disabled,
+.weexbe .btn-primary[disabled] {
+    color: #FFFFFF;
+    background-color: #330066;
+}
+
+.weexbe .btn-primary:active,
+.weexbe .btn-primary.active {
+    background-color: #330066;
+}
+
+.weexbe a {
+    color: #5500AA;
+}
 
 
 
@@ -30,12 +71,46 @@ div.head-row h1{
     border-bottom-right-radius:0;
     border-top-left-radius:0;
     border-top-right-radius:0;
+    min-height: 50px;
 }
-#main-toolbar .navbar-inner .container {
-    /*width:950px;*/
+@media (min-width: 1200px) {
+    #main-toolbar .navbar-inner .container {
+        width:1170px;
+    }
+}
+@media (min-width: 980px) and (max-width: 1199px) {
+    #main-toolbar .navbar-inner .container {
+        width: 940px;
+    }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+    #main-toolbar .navbar-inner .container {
+        width: 724px;
+    }
 }
 #main-toolbar .navbar {
     margin-bottom: 0;
+}
+#main-toolbar .navbar .brand{
+    padding: 0 20px;
+}
+#main-toolbar li{
+    line-height: 30px;
+}
+#main-toolbar li a{
+    text-transform: uppercase;
+}
+#main-toolbar .pull-right li a{
+    text-transform: none;
+}
+
+/*****************************/
+/********* Footer ************/
+#footer{
+    border:1px solid #D4D4D4;
+    min-height: 200px;
+    margin: 20px 0 0 0;
+    padding: 10px 20px;
 }
 
 

@@ -21,7 +21,7 @@
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
-<body>
+<body class="weexbe">
 <?php
 if(!Yii::app()->user->isGuest) {
     $this->widget('dash.components.DashMenuWidget');
@@ -30,8 +30,8 @@ if(!Yii::app()->user->isGuest) {
 <div id="main-toolbar">
 <?php
 $this->widget('bootstrap.widgets.TbNavbar', array(
-    'type'=>null, // null or 'inverse'
-    'brand'=>'weexbeTV',
+    'type'=>'inverse', // null or 'inverse'
+    'brand'=> CHtml::image(Yii::app()->theme->baseUrl . '/img/logo_weexbe-50.png'),
     'brandUrl'=>array('/site/index'),
     'fixed' => false,
     'collapse'=>true, // requires bootstrap-responsive.css
@@ -77,6 +77,22 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 </div><!-- page -->
 
 <div id="footer">
+<br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
 </div><!-- footer -->
 

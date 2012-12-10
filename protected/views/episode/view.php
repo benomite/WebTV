@@ -27,7 +27,7 @@ $this->menu=array(
                 'url'=>array('/episode/update', 'id'=>$model->id),
                 'type'=>'primary', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'size'=>null, // null, 'large', 'small' or 'mini'
-                'icon'=>'icon-edit',
+                'icon'=>'icon-edit icon-white',
             ));
             ?>
         </div>
