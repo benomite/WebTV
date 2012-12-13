@@ -10,6 +10,18 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Structure de la table `user_role_episode`
+--
+
+CREATE TABLE IF NOT EXISTS `user_role_episode` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `rid` int(11) NOT NULL,
+  `eid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
 -- Structure de la table `episode`
 --
 
