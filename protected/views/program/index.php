@@ -27,7 +27,7 @@ $this->menu=array(
     </div>
 </div>
 
-<div class="row">
+<div class="row prgm-list">
     <?php
     $data = array();
     foreach($model as $m){  // loop to get the data (this is different from the complex way)

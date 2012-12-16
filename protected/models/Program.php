@@ -170,4 +170,18 @@ class Program extends CActiveRecord
         $this->_oldTags=$this->tags;
     }
 
+
+    public function getSmallTitle()
+    {
+        // TODO set in config
+        $size = 24;
+
+        $title =  $this->title;
+        if(strlen($title) > $size){
+            $title = substr($title, 0, $size + 3);
+            $title.= "...";
+        }
+
+        return $title;
+    }
 }

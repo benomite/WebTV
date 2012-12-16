@@ -81,18 +81,6 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
     <br />
     <br />
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
 </div><!-- footer -->
 

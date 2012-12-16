@@ -53,7 +53,11 @@ class Episode extends CActiveRecord
 			array('title', 'length', 'max'=>128),
             array('number', 'length', 'max'=>32),
 			array('description', 'safe'),
-            array('image', 'file', 'types'=>'jpg, gif, png','on' => 'insert'),
+            array('image', 'file',
+                'types'=>'jpg, gif, png',
+                'maxSize'=>2202000,
+                'tooLarge'=>Yii::t('app', 'The file was larger than 2M. Please upload a smaller file.'),
+                'on' => 'insert'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('title, description, status', 'safe', 'on'=>'search'),

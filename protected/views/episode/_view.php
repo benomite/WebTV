@@ -3,7 +3,7 @@
         <?php
         $html_link = "";
         if(isset($data->image) && $data->image != "") {
-            $path = Yii::app()->image->createUrl('big_thumb', YiiBase::getPathOfAlias('webroot.images').DIRECTORY_SEPARATOR.$data->image);
+            $path = Yii::app()->image->createUrl('img3_full', YiiBase::getPathOfAlias('webroot.images').DIRECTORY_SEPARATOR.$data->image);
             $html_link = CHtml::image($path, $data->title, array());
         }
         echo CHtml::link($html_link ,array('/episode/view','id'=>$data->id));

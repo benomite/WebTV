@@ -88,10 +88,12 @@ $items = array_merge($items, array(
                         'scaleAndCrop'=>array('width'=>440, 'height'=>300),
                     ),
                 ),
-                'big_thumb'=>array(
-                    'cacheIn'=>'webroot.repository.big_thumb',
+                // A/ from img1 to img12 (follow bootstrap boxes sizes where images are put in)
+                // B/ full - medium - tablet - phone, for screen size, full should be default
+                'img3_full'=>array(
+                    'cacheIn'=>'webroot.repository.img3_full',
                     'actions'=>array(
-                        'scaleAndCrop'=>array('width'=>220, 'height'=>160),
+                        'scaleAndCrop'=>array('width'=>300, 'height'=>240),
                     ),
                 ),
             ),

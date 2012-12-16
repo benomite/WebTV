@@ -25,6 +25,7 @@ div.head-row h1{
 }
 #main-toolbar .navbar-inverse .nav .active > a, #main-toolbar .navbar-inverse .nav .active > a:hover, #main-toolbar .navbar-inverse .nav .active > a:focus {
     background-color:#330066;
+    background-image: -webkit-linear-gradient(top, #8822EE, #330066);
     color:#FFFFFF;
 }
 #main-toolbar .btn-navbar{
@@ -98,7 +99,13 @@ div.head-row h1{
     line-height: 30px;
 }
 #main-toolbar li a{
+    color: #EEEEEE;
     text-transform: uppercase;
+}
+#main-toolbar li a:hover{
+    color: #FFFFFF;
+    background-color:#330066;
+    background-image: -webkit-linear-gradient(top, #8822EE, #330066);
 }
 #main-toolbar .pull-right li a{
     text-transform: none;
@@ -115,16 +122,21 @@ div.head-row h1{
 
 
 /*****************************/
-/********* Metro *************/
-div.items .thumbnails {
-    /*margin:0;*/
+/******* Program list ********/
+img.prgm-box {
+    border-radius: 10px;
+    opacity : 0.8;
+    filter: alpha(opacity=80); /* msie */
 }
-div.items .metro-box {
-    border: 1px solid #C5C5C5;
-    /*margin:-1px 0 0 -1px;*/
-    padding:10px;
-    width:219px;
-    height:190px;
+img.prgm-box:hover{
+    border-radius: 10px;
+    opacity : 1;
+    filter: alpha(opacity=100); /* msie */
+}
+div.prgm-list h4{
+    height:20px;
+    linke-height:20px;
+    overflow:hidden;
 }
 
 /******************************/
