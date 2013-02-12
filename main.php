@@ -28,6 +28,7 @@ $items = array_merge($items, array(
     'preload'=>array(
         'log',
         'bootstrap', // preload the bootstrap component
+		'UnderConstruction',
     ),
 
     // autoloading model and component classes
@@ -79,12 +80,12 @@ $items = array_merge($items, array(
             'class'=>'ext.bootstrap.components.Bootstrap', // assuming you extracted bootstrap under extensions
             'responsiveCss' => true,
         ),
-        /*'UnderConstruction' => array(
+		'UnderConstruction' => array(
             'class' => 'application.components.UnderConstruction',
             'allowedIPs'=>array('178.23.152.133'), //whatever IPs you want to allow
-            'locked'=>true,//this is the on off switch
-            'redirectURL'=>'http://www.weexbetv.com/comingsoon.php',//put in your desired redirect page.
-        ),*/
+			'locked'=>true,//this is the on off switch
+			'redirectURL'=>'http://www.weexbetv.com/comingsoon.php',//put in your desired redirect page.
+	    ),
         'image'=>array(
             'class'=>'ext.imageapi.CImage',
             'presets'=>array(

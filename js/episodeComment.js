@@ -24,4 +24,6 @@ $(document).ready(function(){
             console.log(button);
         });
     });
+
+    $('a.down-vote, a.up-vote').tooltip();
 });

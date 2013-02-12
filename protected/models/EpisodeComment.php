@@ -120,4 +120,9 @@ class EpisodeComment extends CActiveRecord
         else
             return false;
     }
+
+    public function userCanVote(){
+        $votes = EpisodeCommentVote::model()->findAll('user_id=:uid', array(':uid'=>Yii::app()->user->id));
+        $vote->find();
+    }
 }
